@@ -40,3 +40,34 @@ console.log("food".padEnd(12, " -----"));
 const obj = {
     name: "Daniel", // trailing-coma, para no obtener errores al momento de agregar más elementos
 }
+
+
+// Async Await
+
+const helloWorld = () => {
+    return new Promise((resolve, reject) => {
+        (!true)
+            ? setTimeout(() => resolve("Hello World"), 3000)
+            : reject(new Error("Test Error"));
+    });
+};
+
+// función que implementará async
+
+const helloAsync = async () => {
+    const hello = await helloWorld();
+    console.log(hello);
+}
+
+helloAsync();
+
+const anotherFunction = async () => {
+    try {
+        const hello = await helloWorld();
+        console.log(hello);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+anotherFunction();
