@@ -109,3 +109,72 @@ let hola = "Hola"; // disponible de manera local
 const a = "b"; // "inmutable" disponible de manera local
 
 a = "a"; // error, no podemos reasignar un valor a const
+
+
+// Arrow Functions, Promesas y Parámetros en objetos
+
+// Parámetros en objetos
+
+// before es6
+
+let name1 = "Daniel";
+let age1 = 16;
+
+obj = { name: name1, age: age1 };
+
+console.log(obj);
+
+// after es6
+
+obj2 = { name1, age1 };
+
+console.log(obj2);
+
+// Arrow functions
+
+const names = [
+    { name: "Daniel", age: 16 },
+    { name: "Jessica", age: 27 },
+];
+
+// before es6
+
+let listOfNames = names.map(function (item) {
+    console.log(item.name);
+});
+
+// after es6
+
+let listOfNames2 = names.map(item => {
+    console.log(item.name);
+});
+
+const listOfNames3 = (name, age, country) => {
+    console.log(name, age, country);
+}
+
+const listOfNames4 = name => { // un solo parámetro
+    console.log(name)
+}
+
+const square = num => num * num; // una sola línea de código con arrow function sin generar un return
+
+// simplificación del código
+
+// Promesas
+
+// manejar el asincronismo de JS "algo va a pasar"
+
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if (!true) {
+            resolve("Hey!");
+        } else {
+            reject("Ups!!");
+        }
+    });
+};
+
+helloPromise()
+.then(response => console.log(response)) // resolve
+.catch(error => console.log(error)) // reject
